@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First React App</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src='https://unpkg.com/babel-standalone@6/babel.min.js'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+  <script type='text/babel'>
+    function FriendsList (props) {
+      return (
+          <ul>
+            {
+              props.friends.map(element=>
+              <li> {element}  
+                <span>
+                <button onClick={()=>{props.onRemove(element)}}>Remove</button> 
+                </span>
+              </li>
+              )
+            }
+          </ul>
+      )
+    }
+
+    class App extends React.Component{
+      constructor(props){
+        super(props)
+        this.state = {
+          friends : ["Akshita jain" , "Ishita jain" , "Gagan jain" , "Atul jain"]
+        }
+
+        
+      }
+
+      handleAddFriend(){
+
+      }
+
+     handleRemoveFriend(name){
+      this.setState((prevState)=>{
+      
+      })
+     }
+      render(){
+        return(
+          <div>
+          <FriendsList onRemove={this.handleRemoveFriend}  friends = {this.state.friends}/>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('app')
+    )
+  </script>
+</body>
+
+</html>
